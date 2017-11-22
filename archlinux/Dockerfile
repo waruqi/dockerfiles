@@ -10,8 +10,7 @@ RUN echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 RUN pacman -Syy
 
 # install devel environment
-RUN pacman -S --noconfirm --needed git base-devel ccache sudo yaourt pkgbuild-introspection fakeroot python neovim
-RUN ln -s `which nvim` /usr/local/bin/vim
+RUN pacman -S --noconfirm --needed git curl base-devel ccache sudo yaourt pkgbuild-introspection fakeroot tree ripgrep
 
 # switch to ruki user
 RUN groupadd -r ruki && useradd -r -g ruki ruki
@@ -22,9 +21,16 @@ RUN echo "ruki:0000" | chpasswd
 RUN echo "ruki ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER ruki
 
-# install vim configuration
+# install vim
+RUN sudo pacman -S --noconfirm --needed python2-neovim python-neovim ctags 
+RUN sudo ln -s `which nvim` /usr/local/bin/vim
 RUN cd /tmp && git clone https://github.com/waruqi/vim --depth 1 && cd vim/linux && chmod 777 ./install && ./install
 RUN rm -rf /tmp/vim 
 
+# install xmake
+RUN cd /tmp && git clone https://github.com/tboox/xmake.git --depth 1 && cd ./xmake && make build && sudo make install 
+RUN rm -rf /tmp/xmake 
+RUN xmake --version
+
 # install directories
-RUN mkdir /home/projects
+RUN mkdir /home/ruki/projects
