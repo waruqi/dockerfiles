@@ -1,4 +1,3 @@
-# ruki/archlinux
 FROM base/archlinux
 MAINTAINER ruki <waruqi@gmail.com>
 
