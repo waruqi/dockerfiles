@@ -17,6 +17,13 @@ RUN echo "ruki:0000" | chpasswd
 RUN echo "ruki ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER ruki
 
+# install fpm
+RUN sudo apt install -y ruby ruby-dev
+RUN gem sources -r http://rubygems.org/
+RUN gem sources -a https://ruby.taobao.org/
+RUN gem sources -u
+RUN sudo gem install --no-ri --no-rdoc fpm
+
 # install vim
 RUN sudo apt install -y vim ctags 
 RUN cd /tmp && git clone https://gitee.com/tboox/vim.git --depth 1 && cd vim/linux && chmod 777 ./install && ./install 
@@ -29,3 +36,4 @@ RUN xmake --version
 
 # install directories
 RUN mkdir /home/ruki/projects
+WORKDIR /home/ruki/projects

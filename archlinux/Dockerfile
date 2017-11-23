@@ -33,3 +33,4 @@ RUN xmake --version
 
 # install directories
 RUN mkdir /home/ruki/projects
+WORKDIR /home/ruki/projects
