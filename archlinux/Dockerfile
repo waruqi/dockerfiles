@@ -23,11 +23,11 @@ USER ruki
 # install vim
 RUN sudo pacman -S --noconfirm --needed python2-neovim python-neovim ctags 
 RUN sudo ln -s `which nvim` /usr/local/bin/vim
-RUN cd /tmp && git clone https://github.com/waruqi/vim --depth 1 && cd vim/linux && chmod 777 ./install && ./install
+RUN cd /tmp && git clone https://gitee.com/tboox/vim.git --depth 1 && cd vim/linux && chmod 777 ./install && ./install
 RUN rm -rf /tmp/vim 
 
 # install xmake
-RUN cd /tmp && git clone https://github.com/tboox/xmake.git --depth 1 && cd ./xmake && make build && sudo make install 
+RUN cd /tmp && git clone https://gitee.com/tboox/xmake.git --depth 1 && cd ./xmake && make build && sudo make install 
 RUN rm -rf /tmp/xmake 
 RUN xmake --version
 
