@@ -1,4 +1,4 @@
-FROM 32bits/ubuntu
+FROM 32bit/ubuntu
 MAINTAINER ruki <waruqi@gmail.com>
 
 # install devel environment
