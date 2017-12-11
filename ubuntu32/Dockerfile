@@ -1,9 +1,9 @@
-FROM 32bit/ubuntu:16.04
+FROM f69m/ubuntu32:lts
 MAINTAINER ruki <waruqi@gmail.com>
 
 # install devel environment
 RUN apt update 
-RUN apt install -y -f ccache curl build-essential tree silversearcher-ag git 
+RUN apt install -y -f ccache curl build-essential tree silversearcher-ag git sudo
 
 # switch to ruki user
 RUN groupadd -r ruki && useradd -r -g ruki ruki
