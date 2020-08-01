@@ -2,8 +2,9 @@ FROM resin/rpi-raspbian
 MAINTAINER ruki <waruqi@gmail.com>
 
 # install devel environment
+ADD sources.list /etc/apt/
 RUN apt update
-RUN apt install -y git curl build-essential ccache tree silversearcher-ag sudo
+RUN apt install -y git curl build-essential ccache tree silversearcher-ag 
 
 # switch to ruki user
 RUN groupadd -r ruki && useradd -r -g ruki ruki
