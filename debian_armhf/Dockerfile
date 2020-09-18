@@ -7,7 +7,7 @@ MAINTAINER ruki <waruqi@gmail.com>
 
 # install devel environment
 RUN apt update
-RUN apt install -y git curl build-essential ccache tree silversearcher-ag sudo vim ctags
+RUN apt install -y git curl build-essential ccache tree silversearcher-ag sudo vim ctags gdb lldb
 
 # switch to ruki user
 RUN groupadd -r ruki && useradd -r -g ruki ruki
