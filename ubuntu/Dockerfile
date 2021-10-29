@@ -1,4 +1,4 @@
-FROM ubuntu:20.10
+FROM ubuntu:21.04
 MAINTAINER ruki <waruqi@gmail.com>
 
 # install devel environment
@@ -14,11 +14,6 @@ RUN echo "root:0000" | chpasswd
 RUN echo "ruki:0000" | chpasswd
 RUN echo "ruki ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER ruki
-
-# install vim
-RUN sudo apt install -y vim python python-dev
-RUN cd /tmp && git clone https://gitee.com/tboox/vim.git --depth 1 && cd vim/linux && chmod 777 ./install && ./install 
-RUN rm -rf /tmp/vim
 
 # install xmake
 RUN cd /tmp/ && git clone --depth=1 "https://gitee.com/tboox/xmake.git" --recursive xmake && cd xmake && ./scripts/get.sh __local__
