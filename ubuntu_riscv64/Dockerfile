@@ -16,9 +16,9 @@ RUN echo "ruki ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER ruki
 
 # install xmake
-#RUN cd /tmp/ && git clone --depth=1 "https://gitee.com/tboox/xmake.git" --recursive xmake && cd xmake && ./scripts/get.sh __local__
-#RUN rm -rf /tmp/xmake
-#ENV PATH=~/.local/bin:$PATH
+RUN cd /tmp/ && git clone --depth=1 "https://gitee.com/tboox/xmake.git" -b dev --recursive xmake && cd xmake && ./scripts/get.sh __local__
+RUN rm -rf /tmp/xmake
+ENV PATH=~/.local/bin:$PATH
 
 # install directories
 RUN mkdir /home/ruki/projects
