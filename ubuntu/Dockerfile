@@ -1,9 +1,9 @@
-FROM ubuntu:21.04
+FROM ubuntu:22.10
 MAINTAINER ruki <waruqi@gmail.com>
 
 # install devel environment
 RUN apt update
-RUN apt install -y git curl build-essential ccache tree silversearcher-ag
+RUN apt install -y git curl build-essential ccache tree silversearcher-ag unzip
 RUN apt install -y sudo
 
 # switch to ruki user
