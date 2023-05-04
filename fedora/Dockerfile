@@ -1,4 +1,4 @@
-FROM fedora:latest 
+FROM fedora:latest
 MAINTAINER ruki <waruqi@gmail.com>
 
 # install devel environment
@@ -9,7 +9,7 @@ RUN dnf -y upgrade git
 # switch to ruki user
 RUN groupadd -r ruki && useradd -r -g ruki ruki
 RUN mkdir /home/ruki
-RUN chown -R ruki:ruki /home 
+RUN chown -R ruki:ruki /home
 RUN echo "root:0000" | chpasswd
 RUN echo "ruki:0000" | chpasswd
 RUN echo "ruki ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers

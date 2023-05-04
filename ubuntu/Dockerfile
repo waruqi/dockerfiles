@@ -1,4 +1,4 @@
-FROM ubuntu:22.10
+FROM ubuntu:latest
 MAINTAINER ruki <waruqi@gmail.com>
 
 # install devel environment
