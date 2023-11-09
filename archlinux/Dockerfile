@@ -1,13 +1,6 @@
 FROM archlinux
 MAINTAINER ruki <waruqi@gmail.com>
 
-# add pacman mirrors
-RUN echo $'[archlinuxfr] \n\
-SigLevel = Never \n\
-Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
-RUN echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' > /tmp/a && cat /etc/pacman.d/mirrorlist >> /tmp/a && cp /tmp/a /etc/pacman.d/mirrorlist
-RUN pacman -Syy
-
 # install devel environment
 RUN pacman -Sy --noconfirm --needed unzip git curl base-devel ccache sudo tree ripgrep
 
