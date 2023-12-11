@@ -3,7 +3,7 @@ MAINTAINER ruki <waruqi@gmail.com>
 
 # install devel environment
 RUN apt update
-RUN apt install -y git curl build-essential ccache tree silversearcher-ag unzip
+RUN apt install -y git curl build-essential tree ripgrep unzip
 RUN apt install -y sudo
 
 # switch to ruki user
