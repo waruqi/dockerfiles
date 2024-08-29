@@ -15,7 +15,9 @@ USER ruki
 # install xmake
 RUN cd /tmp/ && git clone --depth=1 "https://gitee.com/tboox/xmake.git" --recursive xmake && cd xmake && ./scripts/get.sh __local__
 RUN rm -rf /tmp/xmake
-ENV PATH=~/.local/bin:$PATH
+ENV PATH="/home/ruki/.local/bin:$PATH"
+RUN echo $PATH
+RUN xmake --version
 
 # install directories
 RUN mkdir /home/ruki/projects
